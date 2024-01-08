@@ -1,6 +1,7 @@
 "use client";
 import React, { FormEvent, useEffect, useState } from "react";
 import Todo from "./Todo";
+import Loader from "../components/Loader";
 
 type Data = {
   title: string;
@@ -15,18 +16,20 @@ type Data = {
 const AllTodos = ({ query, newTask }: { query: string; newTask: number }) => {
   const [data, setdata] = useState<Data[]>([]);
   const [todo, setTodo] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     (async () => {
       try {
         if (!query) return;
-
+        setLoading(true);
         const res = await fetch(`/api/todo/${query}`);
         const { dataIS } = await res.json();
         setdata([...dataIS]);
       } catch (error) {
         console.error(error);
       }
+      setLoading(false);
     })();
   }, [query, newTask, todo]);
 
@@ -77,7 +80,9 @@ const AllTodos = ({ query, newTask }: { query: string; newTask: number }) => {
 
   return (
     <section className="min-h-screen w-full flex flex-col items-center">
-      {data.length != 0 ? (
+      {loading ? (
+        <Loader top={96} />
+      ) : data.length != 0 ? (
         data.map((value, index) => {
           return (
             <Todo

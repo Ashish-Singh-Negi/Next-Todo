@@ -1,6 +1,6 @@
 "use client";
 
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent } from "react";
 import { CiEdit } from "react-icons/ci";
 import { RxCross2 } from "react-icons/rx";
 import EditTodo from "./EditTodo";
@@ -44,7 +44,7 @@ const Todo = ({
     />
   ) : (
     <>
-      <div className="h-40 w-2/3 mt-1 border-blue-400  rounded-2xl p-3 pb-3 hover:border-2">
+      <div className="h-40 w-2/3 mt-1 border-blue-400  rounded-2xl p-3 pb-3 hover:border-2 ">
         <div className="h-6 w-full flex justify-between tracking-widest">
           <p className="font-bold text-blue-800">{title}</p>
           <div className="flex h-full items-center gap-3">

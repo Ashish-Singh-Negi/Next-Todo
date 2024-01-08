@@ -8,7 +8,7 @@ export default function LoginPage() {
       <p className="text-3xl  font-extrabold">Login</p>
       <Login />
       <p>
-        dont account?
+        dont have account?
         <Link href={"/register"} className="text-blue-500">
           register now
         </Link>
