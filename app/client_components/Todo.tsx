@@ -35,9 +35,7 @@ const Todo = ({
   editHandler,
   updateHandler,
 }: Data) => {
-  const date = `${dateIs.slice(8, 10)}/
-  ${dateIs.slice(5, 7)}/
-  ${dateIs.slice(0, 4)}`;
+  const date = `${dateIs.slice(8,10)}/${dateIs.slice(5,7)}/${dateIs.slice(0,4)}`;
   return edit ? (
     <EditTodo
       _id={_id}

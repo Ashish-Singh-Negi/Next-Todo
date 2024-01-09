@@ -7,6 +7,7 @@ const AddTodo = () => {
   const [description, setDescription] = useState("");
   const [todoId, setTodoId] = useState("");
   const [newTodo, setNewTodo] = useState(0);
+  const [wordCount, setWordCount] = useState(0);
 
   useEffect(() => {
     (async () => {
@@ -38,6 +39,11 @@ const AddTodo = () => {
     }
   };
 
+  useEffect(() => {
+    if (title.length < 71) setWordCount(title.length);
+    setTitle(title.slice(0, 70));
+  }, [title]);
+
   return (
     <section className="min-h-screen w-full flex flex-col items-center justify-center">
       <form
@@ -51,6 +57,7 @@ const AddTodo = () => {
           placeholder="Title"
           className="w-full h-10 outline-blue-400 border-b-2 p-2"
         />
+        <span className="absolute right-2 top-3 text-xs">{wordCount}/70</span>
         <textarea
           value={description}
           onChange={(e) => setDescription(e.target.value)}
