@@ -20,7 +20,6 @@ export async function POST(request: Request) {
       todosId: todoId,
       completed: false,
       edit: false,
-      createdAt:new Date().toLocaleDateString(),
     });
 
     return NextResponse.json(

@@ -35,6 +35,9 @@ const Todo = ({
   editHandler,
   updateHandler,
 }: Data) => {
+  const date = `${dateIs.slice(8, 10)}/
+  ${dateIs.slice(5, 7)}/
+  ${dateIs.slice(0, 4)}`;
   return edit ? (
     <EditTodo
       _id={_id}
@@ -72,7 +75,7 @@ const Todo = ({
                 not completed
               </p>
             )}
-            <p className=" font-semibold">{dateIs}</p>
+            <p className=" font-semibold">{date}</p>
             <RxCross2
               size={32}
               className="h-6 w-6 text-white bg-red-500 flex justify-center items-center rounded cursor-pointer"

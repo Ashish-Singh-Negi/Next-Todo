@@ -22,14 +22,8 @@ const TodoSchema = new Schema({
     type: Boolean,
     require: true,
   },
-  createdAt: {
-    type: String,
-    require: true,
-  },
-  updatedAt: {
-    type: String,
-    require: true,
-  },
+},{
+  timestamps:true
 });
 
 const Todo = models.Todo || mongoose.model("Todo", TodoSchema);

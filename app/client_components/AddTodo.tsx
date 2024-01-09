@@ -39,23 +39,23 @@ const AddTodo = () => {
   };
 
   return (
-    <section className="min-h-screen w-full flex flex-col items-center ">
+    <section className="min-h-screen w-full flex flex-col items-center justify-center">
       <form
         onSubmit={(e) => submitHandler(e)}
-        className="top-14 relative z-0 h-1/4 w-full flex flex-col items-center my-8 gap-5 mb-20"
+        className="top-14 relative z-0 h-1/4 w-2/3 flex flex-col items-center my-8 gap-5 mb-20"
       >
         <input
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           type="text"
           placeholder="Title"
-          className="w-2/3 h-10 outline-blue-400 border-b-2 p-2"
+          className="w-full h-10 outline-blue-400 border-b-2 p-2"
         />
         <textarea
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           placeholder="Description"
-          className="w-2/3 h-20 resize-none outline-blue-400 border-b-2 p-2 overscroll-contain"
+          className="w-full h-20 resize-none outline-blue-400 border-b-2 p-2 overscroll-contain"
         ></textarea>
         <button
           className="w-1/12 bg-blue-400 my-3 py-2 text-white font-medium rounded-3xl hover:bg-blue-500"
