@@ -54,19 +54,19 @@ const Todo = ({
               <CiEdit
                 size={32}
                 onClick={() => editHandler(_id, true)}
-                className="h-6 w-6 text-blue-500 flex justify-center items-center rounded-full cursor-pointer"
+                className="h-6 w-6 text-blue-600 flex justify-center items-center rounded-full cursor-pointer"
               />
             )}
             {completed ? (
               <p
-                className="text-green-500 font-medium cursor-pointer"
+                className="text-white px-2 py-1 rounded-xl font-medium cursor-pointer bg-green-500"
                 onClick={() => completeHandler(_id, !completed)}
               >
                 completed
               </p>
             ) : (
               <p
-                className="text-red-500 font-medium cursor-pointer"
+                className="text-white bg-red-500 px-2 py-1 rounded-xl font-medium cursor-pointer"
                 onClick={() => completeHandler(_id, !completed)}
               >
                 not completed
@@ -75,7 +75,7 @@ const Todo = ({
             <p className=" font-semibold">{dateIs}</p>
             <RxCross2
               size={32}
-              className="h-6 w-6 text-red-600 flex justify-center items-center rounded-full cursor-pointer"
+              className="h-6 w-6 text-white bg-red-500 flex justify-center items-center rounded cursor-pointer"
               onClick={() => deleteHandler(_id)}
             />
           </div>

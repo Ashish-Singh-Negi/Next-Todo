@@ -48,13 +48,13 @@ const AddTodo = () => {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           type="text"
-          placeholder="title"
+          placeholder="Title"
           className="w-2/3 h-10 outline-blue-400 border-b-2 p-2"
         />
         <textarea
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          placeholder="description"
+          placeholder="Description"
           className="w-2/3 h-20 resize-none outline-blue-400 border-b-2 p-2 overscroll-contain"
         ></textarea>
         <button

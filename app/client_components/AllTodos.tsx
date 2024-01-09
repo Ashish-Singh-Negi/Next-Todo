@@ -88,7 +88,7 @@ const AllTodos = ({ query, newTask }: { query: string; newTask: number }) => {
             <Todo
               title={value.title}
               description={value.description}
-              dateIs={value.createdAt.slice(0, 10)}
+              dateIs={value.createdAt}
               _id={value._id}
               edit={value.edit}
               completed={value.completed}
