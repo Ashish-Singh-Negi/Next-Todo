@@ -4,7 +4,7 @@ export default function HomePage() {
   return (
     <>
       <Header />
-      <div className="text-3xl text-blue-800 top-14 absolute">
+      <div className="text-3xl text-blue-800">
         Home Page
       </div>
     </>

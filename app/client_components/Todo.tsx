@@ -35,7 +35,11 @@ const Todo = ({
   editHandler,
   updateHandler,
 }: Data) => {
-  const date = `${dateIs.slice(8,10)}/${dateIs.slice(5,7)}/${dateIs.slice(0,4)}`;
+  const date = `${dateIs.slice(8, 10)}/${dateIs.slice(5, 7)}/${dateIs.slice(
+    2,
+    4
+  )}`;
+
   return edit ? (
     <EditTodo
       _id={_id}
@@ -45,7 +49,7 @@ const Todo = ({
     />
   ) : (
     <>
-      <div className="h-40 w-2/3 mt-1 border-blue-400  rounded-2xl p-3 pb-3 hover:border-2 ">
+      <div className="h-40 w-full mt-1 border-white rounded-2xl p-3 pb-3 border-2 hover:border-blue-400 transition-transform hover:-translate-y-1">
         <div className="h-6 w-full flex justify-between tracking-widest">
           <p className="font-bold text-blue-800">{title}</p>
           <div className="flex h-full items-center gap-3">
@@ -60,20 +64,20 @@ const Todo = ({
             )}
             {completed ? (
               <p
-                className="text-white px-2 py-1 rounded-xl font-medium cursor-pointer bg-green-500"
+                className="text-white px-2 py-1 rounded-2xl font-medium cursor-pointer bg-green-500"
                 onClick={() => completeHandler(_id, !completed)}
               >
-                completed
+                Completed
               </p>
             ) : (
               <p
-                className="text-white bg-red-500 px-2 py-1 rounded-xl font-medium cursor-pointer"
+                className="text-white bg-red-500 px-2 py-1 rounded-2xl font-medium cursor-pointer"
                 onClick={() => completeHandler(_id, !completed)}
               >
-                not completed
+                Not Completed
               </p>
             )}
-            <p className=" font-semibold">{date}</p>
+            <p className=" font-semibold text-blue-500">{date}</p>
             <RxCross2
               size={32}
               className="h-6 w-6 text-white bg-red-500 flex justify-center items-center rounded cursor-pointer"
