@@ -18,7 +18,7 @@ const EditTodo = ({ _id, title, description, updateHandler }: Props) => {
   return (
     <form
       onSubmit={(e) => updateHandler(e, _id, editedTitle, editedDescription)}
-      className="h-40 relative w-2/3 my-1 bg-white  rounded-2xl p-3 pb-3 hover:border-2 border-blue-400 flex flex-col"
+      className="h-40 relative w-full my-1 bg-white  rounded-2xl p-3 pb-3 hover:border-2 border-blue-400 flex flex-col"
     >
       <input
         type="text"
