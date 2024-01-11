@@ -65,7 +65,7 @@ const Login = () => {
           placeholder="password"
           className="w-3/5 outline-blue-400 h-10 border-b-2 border-blue-400 px-1"
         />
-        <button className="m-6 bg-blue-400 px-6 py-2 rounded-xl text-white hover:bg-blue-600 font-normal">
+        <button className="m-6 bg-blue-400 px-6 py-2 rounded-xl text-white hover:bg-blue-600 font-normal shadow-md shadow-sky-700">
           Login
         </button>
       </form>

@@ -99,7 +99,7 @@ const AllTodos = ({ query, newTask }: { query: string; newTask: number }) => {
         <div className="h-6 w-full flex justify-center">
           <Loader />
         </div>
-      ) : data ? (
+      ) : data.length != 0 ? (
         data.map((value, index) => {
           return value.completed ? (
             ""
@@ -120,13 +120,13 @@ const AllTodos = ({ query, newTask }: { query: string; newTask: number }) => {
           );
         })
       ) : (
-        <div className="text-blue-600 text-2xl">No Tasks Added Yet</div>
+        <div className="text-blue-600 text-2xl text-center">No Tasks Added Yet</div>
       )}
-      <div className="min-h-screen w-full flex flex-col items-center relative border-t-2 mt-2">
+      <div className="min-h-screen w-full flex flex-col items-center relative border-t-2 mt-4">
         {data && (
           <div
             onClick={() => showCompletedTasks()}
-            className="group h-10 w-full px-2 font-semibold text-base flex items-center cursor-pointer "
+            className="group h-10 w-full px-2 font-semibold text-base flex items-center cursor-pointer"
           >
             <IoIosArrowForward
               size={16}
@@ -135,7 +135,7 @@ const AllTodos = ({ query, newTask }: { query: string; newTask: number }) => {
             Completed {completeCount}
           </div>
         )}
-        <div className="w-full absolute top-10 border-b-2 ">
+        <div className="w-full absolute top-10 border-b-2">
           <div className="min-h-min w-full flex flex-col items-center opacity-80">
             {show
               ? data.map((value, index) => {

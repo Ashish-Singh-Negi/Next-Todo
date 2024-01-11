@@ -49,9 +49,9 @@ const Todo = ({
     />
   ) : (
     <>
-      <div className="h-40 w-full mt-1 border-white rounded-2xl p-3 pb-3 border-2 hover:border-blue-400 transition-transform hover:-translate-y-1">
-        <div className="h-6 w-full flex justify-between tracking-widest">
-          <p className="font-bold text-blue-800">{title}</p>
+      <div className="h-28 w-full mt-2 rounded-2xl p-3 pb-3 border-2 hover:bg-gray-50 transition-transform hover:-translate-y-1 shadow-md shadow-gray-200">
+        <div className="h-6 w-full flex justify-between tracking-wider">
+          <p className="font-bold text-blue-700">{title}</p>
           <div className="flex h-full items-center gap-3">
             {completed ? (
               ""
@@ -64,14 +64,14 @@ const Todo = ({
             )}
             {completed ? (
               <p
-                className="text-white px-2 py-1 rounded-2xl font-medium cursor-pointer bg-green-500"
+                className="text-white px-2 py-1 rounded-2xl font-medium cursor-pointer bg-green-500 shadow-md shadow-green-700"
                 onClick={() => completeHandler(_id, !completed)}
               >
                 Completed
               </p>
             ) : (
               <p
-                className="text-white bg-red-500 px-2 py-1 rounded-2xl font-medium cursor-pointer"
+                className="text-white bg-red-500 px-2 py-1 rounded-2xl font-medium cursor-pointer shadow-md shadow-pink-600"
                 onClick={() => completeHandler(_id, !completed)}
               >
                 Not Completed
@@ -80,12 +80,12 @@ const Todo = ({
             <p className=" font-semibold text-blue-500">{date}</p>
             <RxCross2
               size={32}
-              className="h-6 w-6 text-white bg-red-500 flex justify-center items-center rounded cursor-pointer"
+              className="h-6 w-6 text-white bg-red-500 flex justify-center items-center rounded cursor-pointer shadow-sm shadow-red-500"
               onClick={() => deleteHandler(_id)}
             />
           </div>
         </div>
-        <div className="h-28 text-gray-600 tracking-wide overflow-auto ">
+        <div className="h-22 text-gray-600 pt-[1] tracking-normal overflow-y-scroll ">
           {description}
         </div>
       </div>
