@@ -67,7 +67,7 @@ const Register = () => {
   return (
     <>
       {loading ? (
-        <Loader top={10}/>
+        <Loader top={10} />
       ) : (
         err && (
           <div className=" absolute top-10 text-red-500 font-semibold">
@@ -85,25 +85,25 @@ const Register = () => {
           value={username}
           type="text"
           placeholder=" username"
-          className="w-3/5 outline-blue-400 h-10 border-b-2 border-blue-400 px-1"
+          className="w-3/5 h-10 outline-none border-b-2 rounded-md border-blue-400 px-1 dark:border-black dark:focus:border-blue-500"
         />
         <input
           onChange={(e) => setEmail(e.target.value)}
           value={email}
           type="text"
           placeholder=" email"
-          className="w-3/5 outline-blue-400 h-10 border-b-2 border-blue-400 px-1"
+          className="w-3/5 h-10 outline-none border-b-2 rounded-md border-blue-400 px-1 dark:border-black dark:focus:border-blue-500"
         />
         <input
           onChange={(e) => setPassword(e.target.value)}
           value={password}
           type="password"
           placeholder=" password"
-          className="w-3/5 outline-blue-400 h-10 border-b-2 border-blue-400 px-1"
+          className="w-3/5 h-10 outline-none border-b-2 rounded-md border-blue-400 px-1 dark:border-black dark:focus:border-blue-500"
         />
         <button
           type="submit"
-          className="m-6 bg-blue-400 px-6 py-2 rounded-xl text-white hover:bg-blue-600 font-normal shadow-md shadow-sky-700"
+          className="m-6 bg-blue-400 px-6 py-2 rounded-xl text-white hover:bg-blue-600 font-normal shadow-md shadow-sky-700 hover:scale-105 active:scale-100"
         >
           SignUp
         </button>

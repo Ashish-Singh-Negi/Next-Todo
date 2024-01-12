@@ -49,9 +49,9 @@ const Todo = ({
     />
   ) : (
     <>
-      <div className="h-28 w-full mt-2 rounded-2xl p-3 pb-3 border-2 hover:bg-gray-50 transition-transform hover:-translate-y-1 shadow-md shadow-gray-200">
+      <div className="min-h-min w-full mt-2 rounded-2xl p-3 pb-3 border-2 hover:bg-gray-50 transition-transform hover:-translate-y-1 shadow-md shadow-gray-200 dark:border-gray-600 dark:shadow-gray-700 dark:hover:bg-gray-900">
         <div className="h-6 w-full flex justify-between tracking-wider">
-          <p className="font-bold text-blue-700">{title}</p>
+          <p className="font-bold text-lg text-blue-700 dark:text-blue-200">{title}</p>
           <div className="flex h-full items-center gap-3">
             {completed ? (
               ""
@@ -59,33 +59,33 @@ const Todo = ({
               <CiEdit
                 size={32}
                 onClick={() => editHandler(_id, true)}
-                className="h-6 w-6 text-blue-600 flex justify-center items-center rounded-full cursor-pointer"
+                className="h-6 w-6 text-blue-600 flex justify-center items-center rounded-full cursor-pointer hover:scale-105 active:scale-100 duration-50 dark:text-blue-200"
               />
             )}
             {completed ? (
               <p
-                className="text-white px-2 py-1 rounded-2xl font-medium cursor-pointer bg-green-500 shadow-md shadow-green-700"
+                className="text-white px-2 py-1 rounded-2xl font-medium cursor-pointer bg-green-500 shadow-md shadow-green-700 transition-transform transform hover:scale-105 active:scale-100 duration-50"
                 onClick={() => completeHandler(_id, !completed)}
               >
                 Completed
               </p>
             ) : (
               <p
-                className="text-white bg-red-500 px-2 py-1 rounded-2xl font-medium cursor-pointer shadow-md shadow-pink-600"
+                className="text-white bg-red-500 px-2 py-1 rounded-2xl font-medium cursor-pointer shadow-sm shadow-pink-600 hover:scale-105 active:scale-100 duration-50"
                 onClick={() => completeHandler(_id, !completed)}
               >
                 Not Completed
               </p>
             )}
-            <p className=" font-semibold text-blue-500">{date}</p>
+            <p className=" font-semibold text-blue-500 dark:text-blue-200">{date}</p>
             <RxCross2
               size={32}
-              className="h-6 w-6 text-white bg-red-500 flex justify-center items-center rounded cursor-pointer shadow-sm shadow-red-500"
+              className="h-6 w-6 text-white bg-red-500 flex justify-center items-center rounded cursor-pointer shadow-sm shadow-red-500 transition-transform transform hover:scale-105 active:scale-100 duration-50"
               onClick={() => deleteHandler(_id)}
             />
           </div>
         </div>
-        <div className="h-22 text-gray-600 pt-[1] tracking-normal overflow-y-scroll ">
+        <div className="h-22 text-gray-600 pt-2 tracking-normal overflow-y-scroll dark:text-white ">
           {description}
         </div>
       </div>

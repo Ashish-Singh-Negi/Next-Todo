@@ -7,7 +7,7 @@ const AddTodo = () => {
   const [description, setDescription] = useState("");
   const [todoId, setTodoId] = useState("");
   const [newTodo, setNewTodo] = useState(0);
-  const [wordCount, setWordCount] = useState(0);
+  const [titleWordCount, setTitleWordCount] = useState(0);
 
   useEffect(() => {
     (async () => {
@@ -40,7 +40,7 @@ const AddTodo = () => {
   };
 
   useEffect(() => {
-    if (title.length < 71) setWordCount(title.length);
+    if (title.length < 71) setTitleWordCount(title.length);
     setTitle(title.slice(0, 70));
   }, [title]);
 
@@ -55,17 +55,19 @@ const AddTodo = () => {
           onChange={(e) => setTitle(e.target.value)}
           type="text"
           placeholder="Title"
-          className="w-full h-10 border-b-2 p-2 focus:outline-none focus:border-blue-800 transition-colors delay-100"
+          className="w-full h-10 border-b-2 p-2 focus:outline-none focus:border-blue-800 dark:border-black rounded-md dark:focus:border-blue-400 transition-colors delay-100 dark:bg-[#212933]"
         />
-        <span className="absolute right-2 top-3 text-xs">{wordCount}/70</span>
+        <span className="absolute right-2 top-3 text-xs">
+          {titleWordCount}/70
+        </span>
         <textarea
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           placeholder="Description"
-          className="w-full h-20 resize-none  border-b-2 p-2 overscroll-contain focus:outline-none focus:border-blue-800 transition-colors delay-100"
+          className="w-full h-20 resize-none  border-b-2 p-2 overscroll-contain focus:outline-none dark:border-black rounded-md focus:border-blue-800 dark:focus:border-blue-400 transition-colors delay-100 dark:bg-[#212933]"
         ></textarea>
         <button
-          className="w-1/12 bg-blue-400 my-3 py-2 text-white font-medium rounded-3xl hover:bg-blue-500 shadow-md shadow-sky-700"
+          className="w-1/12 bg-blue-400 my-3 py-1 hover:scale-105 active:scale-100 duration-50 text-white font-medium rounded-3xl hover:bg-blue-500 shadow-md shadow-sky-700 "
           type="submit"
         >
           Submit

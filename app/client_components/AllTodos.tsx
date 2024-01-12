@@ -135,7 +135,7 @@ const AllTodos = ({ query, newTask }: { query: string; newTask: number }) => {
             Completed {completeCount}
           </div>
         )}
-        <div className="w-full absolute top-10 border-b-2">
+        <div className={`w-full absolute top-10 border-b-2 ${show && "pb-3"}`}>
           <div className="min-h-min w-full flex flex-col items-center opacity-80">
             {show
               ? data.map((value, index) => {
