@@ -37,33 +37,27 @@ const AllTodos = ({ query, newTask }: { query: string; newTask: number }) => {
   }, [query, newTask, todo]);
 
   const deleteHandler = async (id: string) => {
-    setLoading(true);
     await fetch("/api/todo/delete", {
       method: "DELETE",
       body: JSON.stringify({ id }),
     });
     setTodo((prev) => prev - 1);
-    setLoading(false);
   };
 
   const completeHandler = async (_id: string, isCompleted: boolean) => {
-    setLoading(true);
     await fetch("/api/todo/complete", {
       method: "PUT",
       body: JSON.stringify({ _id, isCompleted }),
     });
     setTodo((prev) => prev + 1);
-    setLoading(false);
   };
 
   const editHandler = async (_id: string, isEdit: boolean) => {
-    setLoading(true);
     await fetch("/api/todo/edit", {
       method: "PUT",
       body: JSON.stringify({ _id, isEdit }),
     });
     setTodo((prev) => prev + 1);
-    setLoading(false);
   };
 
   const updateHandler = async (
@@ -73,7 +67,6 @@ const AllTodos = ({ query, newTask }: { query: string; newTask: number }) => {
     editedDescription: string
   ) => {
     e.preventDefault();
-    setLoading(true);
     await fetch("/api/todo/update", {
       method: "PUT",
       body: JSON.stringify({
@@ -85,7 +78,6 @@ const AllTodos = ({ query, newTask }: { query: string; newTask: number }) => {
     });
 
     setTodo((prev) => prev + 1);
-    setLoading(false);
   };
 
   const showCompletedTasks = () => {
