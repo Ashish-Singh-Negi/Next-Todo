@@ -126,7 +126,7 @@ const AllTodos = ({ query, newTask }: { query: string; newTask: number }) => {
         {data && (
           <div
             onClick={() => showCompletedTasks()}
-            className="group h-10 w-full px-2 font-semibold text-base flex items-center cursor-pointer"
+            className="h-10 w-full px-2 font-semibold text-base flex items-center cursor-pointer"
           >
             <IoIosArrowForward
               size={16}
@@ -135,8 +135,16 @@ const AllTodos = ({ query, newTask }: { query: string; newTask: number }) => {
             Completed {completeCount}
           </div>
         )}
-        <div className={`w-full absolute top-10 border-b-2 ${show && "pb-3"}`}>
-          <div className="min-h-min w-full flex flex-col items-center opacity-80">
+        <div
+          className={`w-full absolute top-10 border-b-2 transition-all ease-in-out duration-150 ${
+            show && "pb-3"
+          }`}
+        >
+          <div
+            className={`min-h-min w-full -translate-y-8  opacity-0 transition-all delay-75 duration-150 ease-in-out ${
+              show && "translate-y-0  opacity-100"
+            }`}
+          >
             {show
               ? data.map((value, index) => {
                   return value.completed ? (
