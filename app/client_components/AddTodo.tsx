@@ -11,10 +11,10 @@ const AddTodo = () => {
 
   useEffect(() => {
     (async () => {
-      const res = await fetch("/api/isId");
-      const { id } = await res.json();
-      if (!id) return;
-      const { email } = id;
+      const res = await fetch("/api/isAuth");
+      const { user } = await res.json();
+      if (!user) return;
+      const { email } = user;
       setTodoId(email);
     })();
   }, []);

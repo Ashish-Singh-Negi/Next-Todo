@@ -7,15 +7,13 @@ import ToggleTheme from "./ToggleTheme";
 
 const Header = () => {
   const [isLogin, setIsLogin] = useState(false);
-  const [dark, setDark] = useState(false);
   const { push } = useRouter();
 
   useEffect(() => {
     (async () => {
       const { isAuthUser } = await getUserAuth();
-      const user = isAuthUser;
 
-      if (!user) {
+      if (!isAuthUser) {
         push("/login");
         return;
       }
@@ -40,8 +38,9 @@ const Header = () => {
       <p className="text-3xl font-bold text-white">Todolist</p>
       <div className="h-14 w-full"></div>
       <div className="h-10 w-1/12 flex justify-end gap-4 items-center">
-        
-        <div className="h-8 w-8 flex justify-center items-center rounded-l cursor-pointer"><ToggleTheme /></div>
+        <div className="h-8 w-8 flex justify-center items-center rounded-l cursor-pointer">
+          <ToggleTheme />
+        </div>
         {isLogin ? (
           <div
             onClick={logoutHandler}
@@ -65,7 +64,7 @@ const Header = () => {
 async function getUserAuth() {
   try {
     const res = await fetch("api/isAuth");
-    const { user }: { user: boolean } = await res.json();
+    const { user }: { user: {} | { email: string } } = await res.json();
 
     return {
       isAuthUser: user,

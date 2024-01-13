@@ -3,7 +3,6 @@ import React, { FormEvent, useEffect, useState } from "react";
 import Todo from "./Todo";
 import Loader from "../components/Loader";
 import { IoIosArrowForward } from "react-icons/io";
-import { IoIosArrowDown } from "react-icons/io";
 
 type Data = {
   title: string;
@@ -38,27 +37,33 @@ const AllTodos = ({ query, newTask }: { query: string; newTask: number }) => {
   }, [query, newTask, todo]);
 
   const deleteHandler = async (id: string) => {
+    setLoading(true);
     await fetch("/api/todo/delete", {
       method: "DELETE",
       body: JSON.stringify({ id }),
     });
-    setTodo((prev) => prev + 1);
+    setTodo((prev) => prev - 1);
+    setLoading(false);
   };
 
   const completeHandler = async (_id: string, isCompleted: boolean) => {
+    setLoading(true);
     await fetch("/api/todo/complete", {
       method: "PUT",
       body: JSON.stringify({ _id, isCompleted }),
     });
     setTodo((prev) => prev + 1);
+    setLoading(false);
   };
 
   const editHandler = async (_id: string, isEdit: boolean) => {
+    setLoading(true);
     await fetch("/api/todo/edit", {
       method: "PUT",
       body: JSON.stringify({ _id, isEdit }),
     });
     setTodo((prev) => prev + 1);
+    setLoading(false);
   };
 
   const updateHandler = async (
@@ -68,7 +73,7 @@ const AllTodos = ({ query, newTask }: { query: string; newTask: number }) => {
     editedDescription: string
   ) => {
     e.preventDefault();
-
+    setLoading(true);
     await fetch("/api/todo/update", {
       method: "PUT",
       body: JSON.stringify({
@@ -80,6 +85,7 @@ const AllTodos = ({ query, newTask }: { query: string; newTask: number }) => {
     });
 
     setTodo((prev) => prev + 1);
+    setLoading(false);
   };
 
   const showCompletedTasks = () => {
@@ -120,7 +126,9 @@ const AllTodos = ({ query, newTask }: { query: string; newTask: number }) => {
           );
         })
       ) : (
-        <div className="text-blue-600 text-2xl text-center">No Tasks Added Yet</div>
+        <div className="text-blue-600 text-2xl text-center">
+          No Tasks Added Yet
+        </div>
       )}
       <div className="min-h-screen w-full flex flex-col items-center relative border-t-2 mt-4">
         {data && (

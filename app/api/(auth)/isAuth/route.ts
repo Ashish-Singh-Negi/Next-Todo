@@ -23,10 +23,10 @@ export function GET() {
   const secret = process.env.JWT_SECRET || "";
 
   try {
-    verify(value, secret);
+    const authIs = verify(value, secret);
     return NextResponse.json(
       {
-        user: true,
+        user: authIs,
       },
       {
         status: 200,
@@ -35,7 +35,7 @@ export function GET() {
   } catch (error) {
     return NextResponse.json(
       {
-        user: false,
+        user: {},
         message: "Unauthorized",
       },
       {
